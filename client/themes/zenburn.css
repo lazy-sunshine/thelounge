@@ -239,6 +239,16 @@ code,
 	color: #dcdccc;
 }
 
+kbd {
+	color: #eee;
+	text-shadow: 0 -1px 0 #000;
+	border-color: #000;
+	background-color: #4d4c4c;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), transparent 80%, transparent);
+	background-repeat: no-repeat;
+	box-shadow: 0 2px 0 #000, 0 3px 1px #000, inset 0 1px 1px #aaa, inset 0 -1px 3px #272727;
+}
+
 /* Previews */
 
 #chat .toggle-content {

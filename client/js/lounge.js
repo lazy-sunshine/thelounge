@@ -141,6 +141,12 @@ $(function() {
 					text: "Join a channel…",
 					data: target.data("id"),
 				});
+				output += templates.contextmenu_item({
+					class: "edit",
+					action: "edit",
+					text: "Edit network",
+					data: target.closest(".network").data("uuid"),
+				});
 			}
 
 			if (target.hasClass("channel")) {
@@ -521,6 +527,11 @@ $(function() {
 		join(itemData) {
 			const network = $(`#join-channel-${itemData}`).closest(".network");
 			JoinChannel.openForm(network);
+		},
+		edit(itemData) {
+			socket.emit("network:get", itemData);
+			$("#connect").text("Loading");
+			$('button[data-target="#connect"]').click();
 		},
 		close(itemData) {
 			closeChan($(`.networks .chan[data-target="${itemData}"]`));
